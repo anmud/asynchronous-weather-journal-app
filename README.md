@@ -9,7 +9,7 @@ An asynchronous Weather-Journal App that uses Web API and user data to dynamical
 - Node,
 - Express, 
 
-**Project Dependancies: **
+**Project Dependancies:**
 
 - Body-Parser, 
 - Cors

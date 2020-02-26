@@ -22,10 +22,10 @@ app.use(cors());
 // Initializing the main project folder
 app.use(express.static("website"));
 
-// set a "port" variable
+// TODO-set a "port" variable
 const port = 8000;
 
-//set a variable named "server"
+//TODO-set a variable named "server"
 const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
 });
@@ -39,15 +39,17 @@ app.get("/all", (request, response) => {
 // POST  method route
 
 app.post("/add", (req, res) => {
+  let newData = req.body
   let newEntry = {
-    date: req.body.date,
-    temperature: req.body.temp,
-    feelings: req.body.feelings,
-    city: req.body.name,
-    country: req.body.sys.country
+    date: newData.date,
+    temperature: newData.temperature,
+    city: newData.city,
+    country: newData.country,
+    feelings: newData.feelings,
   };
   projectData.push(newEntry);
   res.send(projectData);
 });
+
 
 

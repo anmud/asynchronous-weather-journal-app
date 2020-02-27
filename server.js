@@ -1,6 +1,6 @@
 // Empty JS object to act as endpoint for all routes
-projectData = [];
-console.log("projectData", projectData);
+
+projectData = {};
 
 // TODO-Express to run server and routes
 
@@ -33,23 +33,20 @@ const server = app.listen(port, () => {
 // GET method  route
 
 app.get("/all", (request, response) => {
+  res.status(200);
   response.send(projectData);
 });
 
 // POST  method route
 
 app.post("/add", (req, res) => {
-  let newData = req.body
-  let newEntry = {
-    date: newData.date,
-    temperature: newData.temperature,
-    city: newData.city,
-    country: newData.country,
-    feelings: newData.feelings,
-  };
-  projectData.push(newEntry);
+  let newData = req.body;
+  projectData["date"] = newData.date;
+  projectData["temperature"] = newData.temperature;
+  projectData["city"] = newData.city;
+  projectData["country"] = newData.country;
+  projectData["feelings"] = newData.feelings;
+  res.status(200);
   res.send(projectData);
 });
-
-
 
